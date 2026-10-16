@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "vite build && powershell -Command \"Copy-Item dist\\index.html dist\\404.html; Push-Location dist; git init; git config user.name 'Tushar Ambastha'; git config user.email 'ambasthatushar@gmail.com'; git checkout -b gh-pages; git add -A; git commit -m 'Deploy update'; git push -f https://github.com/tusharambastha/portfolio.git gh-pages; Pop-Location; Remove-Item -Recurse -Force dist\\.git\""
   },
   "dependencies": {
     "lucide-react": "^1.58.0",
