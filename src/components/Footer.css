@@ -1,5 +1,5 @@
 .footer-root {
-  background-color: var(--bg-card);
+  background-color: var(--bg-primary);
   border-top: 1px solid var(--border-subtle);
   padding-top: 4rem;
   padding-bottom: 2.5rem;
@@ -52,10 +52,11 @@
 }
 
 .footer-links-title {
-  font-size: 0.6875rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .footer-nav-list {

@@ -1,6 +1,6 @@
 import React from "react";
 import { educationData } from "../data/portfolioData";
-import { GraduationCap, Calendar, MapPin, CheckCircle2 } from "lucide-react";
+import { GraduationCap, Calendar, CheckCircle2 } from "lucide-react";
 import "./Education.css";
 
 export default function Education() {
@@ -12,7 +12,7 @@ export default function Education() {
           <span className="section-label">Academic Path</span>
           <h2 className="section-title">Education</h2>
           <p className="section-subtitle">
-            Current undergraduate degree and core curriculum focus in computer science and engineering.
+            Current undergraduate degree and curriculum focus in computer science and engineering.
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function Education() {
                 </div>
 
                 <div className="edu-meta-group">
-                  <span className="edu-badge font-mono">
+                  <span className="edu-badge">
                     <Calendar size={13} aria-hidden="true" />
                     <span>{edu.duration}</span>
                   </span>
@@ -42,7 +42,7 @@ export default function Education() {
               </div>
 
               <div className="edu-highlights-wrap">
-                <h5 className="highlights-heading font-mono">ACADEMIC & CURRICULAR CONTEXT:</h5>
+                <h5 className="highlights-heading">Key Coursework & Academic Focus</h5>
                 <ul className="edu-highlights-list">
                   {edu.highlights.map((h, hIdx) => (
                     <li key={hIdx} className="edu-highlight-item">

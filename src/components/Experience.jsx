@@ -1,6 +1,6 @@
 import React from "react";
 import { experienceData } from "../data/portfolioData";
-import { Briefcase, Eye, Wrench, AlertCircle, Calendar } from "lucide-react";
+import { Briefcase, Eye, Wrench, Calendar, Info } from "lucide-react";
 import "./Experience.css";
 
 export default function Experience() {
@@ -12,7 +12,7 @@ export default function Experience() {
           <span className="section-label">Practical Exposure</span>
           <h2 className="section-title">Industry Training</h2>
           <p className="section-subtitle">
-            Hands-on vocational exposure and industrial observation in automobile manufacturing and quality systems.
+            Vocational exposure and practical observation in automobile manufacturing, mechanical systems, and quality standards.
           </p>
         </div>
 
@@ -32,25 +32,25 @@ export default function Experience() {
 
                 <div className="exp-meta-badge">
                   <Calendar size={14} aria-hidden="true" />
-                  <span className="font-mono">{exp.duration}</span>
+                  <span>{exp.duration}</span>
                 </div>
               </div>
 
-              {/* Crucial honesty alert: Non-software clarification */}
-              <div className="exp-clarification-banner">
-                <AlertCircle size={16} className="clarification-icon" aria-hidden="true" />
-                <span className="clarification-text">
+              {/* Scope note */}
+              <div className="exp-scope-note">
+                <Info size={15} className="scope-icon" aria-hidden="true" />
+                <span className="scope-text">
                   <strong>Program Scope:</strong> {exp.scopeNote}
                 </span>
               </div>
 
               <p className="exp-summary">{exp.summary}</p>
 
-              {/* Explicit separation between performed vs observed */}
+              {/* Performed vs observed breakdown */}
               <div className="exp-activities-grid">
                 <div className="activities-column">
                   <div className="column-header">
-                    <Wrench size={16} className="col-icon" aria-hidden="true" />
+                    <Wrench size={15} className="col-icon" aria-hidden="true" />
                     <h5 className="column-title">Workshops Performed</h5>
                   </div>
                   <ul className="activities-list">
@@ -64,8 +64,8 @@ export default function Experience() {
 
                 <div className="activities-column">
                   <div className="column-header">
-                    <Eye size={16} className="col-icon" aria-hidden="true" />
-                    <h5 className="column-title">Industrial Workflows Observed</h5>
+                    <Eye size={15} className="col-icon" aria-hidden="true" />
+                    <h5 className="column-title">Workflows Observed</h5>
                   </div>
                   <ul className="activities-list">
                     {exp.observed.map((item, oIdx) => (

@@ -3,21 +3,21 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette */
+  /* Clean, Warm-White & Sophisticated Neutral Palette */
   --bg-primary: #ffffff;
-  --bg-secondary: #fcfbf9;
-  --bg-subtle: #f8fafc;
+  --bg-secondary: #fafaf9;      /* Warm alabaster / light stone */
+  --bg-subtle: #f5f5f4;         /* Subtle card / tag background */
   --bg-card: #ffffff;
-  --bg-card-hover: #fcfcfc;
+  --bg-card-hover: #ffffff;
 
-  --text-primary: #0f172a;       /* Charcoal / Near-black */
-  --text-secondary: #475569;     /* Slate / Muted gray */
-  --text-muted: #64748b;         /* Lighter muted gray */
-  --text-subtle: #94a3b8;        /* Very subtle labels */
+  --text-primary: #18181b;       /* Charcoal zinc-900 */
+  --text-secondary: #52525b;     /* Slate / zinc-600 */
+  --text-muted: #71717a;         /* Muted gray zinc-500 */
+  --text-subtle: #a1a1aa;        /* Delicate meta labels */
 
-  --border-subtle: #e2e8f0;      /* Standard clean hairline border */
-  --border-medium: #cbd5e1;      /* Interactive hover border */
-  --border-focus: #2563eb;       /* Accessible focus border */
+  --border-subtle: #e4e4e7;      /* Clean hairline border */
+  --border-medium: #d4d4d8;      /* Interactive hover border */
+  --border-focus: #2563eb;       /* Accessible focus ring */
 
   /* Subtle Single Blue Accent */
   --accent: #2563eb;             /* Engineering royal blue */
@@ -26,8 +26,8 @@
   --accent-border: #bfdbfe;      /* Subtle blue border for badges */
 
   /* Badges & Status */
-  --badge-bg: #f1f5f9;
-  --badge-text: #334155;
+  --badge-bg: #f4f4f5;
+  --badge-text: #27272a;
   --badge-green-bg: #ecfdf5;
   --badge-green-text: #065f46;
   --badge-green-border: #a7f3d0;
@@ -37,21 +37,21 @@
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Menlo, Monaco, monospace;
 
   /* Elevation */
-  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.06), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.05), 0 2px 4px -2px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 12px 28px -6px rgba(15, 23, 42, 0.07), 0 4px 8px -4px rgba(15, 23, 42, 0.03);
 
   /* Layout */
-  --container-max-width: 1080px;
+  --container-max-width: 1040px;
   --header-height: 64px;
   --radius-sm: 6px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
   --radius-full: 9999px;
 
   /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 220ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Base Reset & Document Defaults */
@@ -68,7 +68,7 @@ html {
   color: var(--text-primary);
   background-color: var(--bg-primary);
   scroll-behavior: smooth;
-  scroll-padding-top: calc(var(--header-height) + 16px);
+  scroll-padding-top: calc(var(--header-height) + 20px);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -85,7 +85,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
   font-weight: 600;
   line-height: 1.25;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
 }
 
 p {
@@ -141,8 +141,8 @@ a:focus-visible {
 
 @media (max-width: 768px) {
   .section {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
+    padding-top: 3.75rem;
+    padding-bottom: 3.75rem;
   }
 }
 
@@ -152,36 +152,37 @@ a:focus-visible {
 
 /* Section Header Typography */
 .section-header {
-  margin-bottom: 3rem;
+  margin-bottom: 2.75rem;
 }
 
 .section-label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.8125rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   color: var(--accent);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .section-label::before {
   content: "";
   display: inline-block;
-  width: 12px;
-  height: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background-color: var(--accent);
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: 2.125rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.025em;
+  margin-bottom: 0.625rem;
+  letter-spacing: -0.03em;
 }
 
 @media (max-width: 640px) {
@@ -193,7 +194,7 @@ a:focus-visible {
 .section-subtitle {
   font-size: 1.0625rem;
   color: var(--text-secondary);
-  max-width: 640px;
+  max-width: 620px;
   line-height: 1.6;
 }
 

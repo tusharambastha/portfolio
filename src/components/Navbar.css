@@ -48,7 +48,7 @@
 
 .brand-role {
   font-size: 0.75rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-weight: 500;
   color: var(--text-muted);
   background-color: var(--bg-subtle);

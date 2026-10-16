@@ -45,7 +45,7 @@ export default function Contact() {
                   <Mail size={20} aria-hidden="true" />
                 </div>
                 <div>
-                  <span className="contact-type font-mono">PRIMARY INBOX</span>
+                  <span className="contact-type">Email</span>
                   <a href={`mailto:${personalInfo.email}`} className="contact-value">
                     {personalInfo.email}
                   </a>
@@ -90,7 +90,7 @@ export default function Contact() {
                   <LinkedinIcon size={20} aria-hidden="true" />
                 </div>
                 <div>
-                  <span className="contact-type font-mono">PROFESSIONAL NETWORK</span>
+                  <span className="contact-type">LinkedIn</span>
                   <a
                     href={personalInfo.linkedin}
                     target="_blank"
@@ -110,7 +110,7 @@ export default function Contact() {
                   className="btn btn-secondary btn-sm"
                   aria-label="Open LinkedIn profile in new tab"
                 >
-                  <span>Visit LinkedIn Profile</span>
+                  <span>Visit Profile</span>
                   <ExternalLink size={14} aria-hidden="true" />
                 </a>
               </div>
@@ -123,12 +123,12 @@ export default function Contact() {
                   <GithubIcon size={20} aria-hidden="true" />
                 </div>
                 <div>
-                  <span className="contact-type font-mono">CODE REPOSITORIES</span>
+                  <span className="contact-type">GitHub</span>
                   <a
                     href={personalInfo.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="contact-value font-mono"
+                    className="contact-value"
                   >
                     github.com/tusharambastha
                   </a>
@@ -155,13 +155,12 @@ export default function Contact() {
             <div className="draft-header">
               <div className="draft-title-wrap">
                 <MessageSquare size={18} className="draft-icon" aria-hidden="true" />
-                <h3 className="draft-title">Quick Email Draft Composer</h3>
+                <h3 className="draft-title">Write a Quick Message</h3>
               </div>
-              <span className="draft-badge font-mono">Native Mailto</span>
             </div>
 
             <p className="draft-explainer">
-              Draft your message below. Clicking "Launch in Email Client" formats and pre-fills your email application directly without third-party form trackers or fake submission states.
+              Draft your message here. Clicking the button below opens your preferred email application directly with the pre-filled text.
             </p>
 
             <form
@@ -172,13 +171,13 @@ export default function Contact() {
               className="draft-form"
             >
               <div className="form-group">
-                <label htmlFor="draft-subject" className="form-label font-mono">
-                  SUBJECT:
+                <label htmlFor="draft-subject" className="form-label">
+                  Subject
                 </label>
                 <input
                   id="draft-subject"
                   type="text"
-                  placeholder="e.g. Collaboration on Open Source / Student Project"
+                  placeholder="e.g. Collaboration on Software Project"
                   value={subject}
                   onChange={(e) => setSubject(e.target.value)}
                   className="form-input"
@@ -186,13 +185,13 @@ export default function Contact() {
               </div>
 
               <div className="form-group">
-                <label htmlFor="draft-body" className="form-label font-mono">
-                  MESSAGE BODY:
+                <label htmlFor="draft-body" className="form-label">
+                  Message
                 </label>
                 <textarea
                   id="draft-body"
                   rows={4}
-                  placeholder="Type your brief message or notes here..."
+                  placeholder="Write your note or inquiry here..."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   className="form-textarea"
@@ -206,11 +205,11 @@ export default function Contact() {
                   aria-label="Launch formatted draft in default email client"
                 >
                   <Send size={14} aria-hidden="true" />
-                  <span>Launch in Email Client</span>
+                  <span>Open in Email App</span>
                 </a>
 
-                <span className="draft-note font-mono">
-                  Recipient: {personalInfo.email}
+                <span className="draft-note">
+                  Direct to: {personalInfo.email}
                 </span>
               </div>
             </form>

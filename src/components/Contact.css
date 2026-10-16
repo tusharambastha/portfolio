@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Contact Section — Clean Personal Communication Channels
+   ========================================================================== */
+
 .contact-section {
   background-color: var(--bg-primary);
 }
@@ -12,25 +16,26 @@
 .contact-channels {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.125rem;
 }
 
 .channels-heading {
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .contact-card {
-  padding: 1.25rem;
-  background-color: var(--bg-card);
+  padding: 1.25rem 1.375rem;
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-normal);
 }
 
 .contact-card:hover {
@@ -41,7 +46,7 @@
 
 .email-highlight-card {
   border-color: var(--accent-border);
-  background-color: #fcfdfe;
+  background-color: #fafcff;
 }
 
 .contact-card-header {
@@ -53,22 +58,22 @@
 .contact-icon-box {
   width: 38px;
   height: 38px;
-  border-radius: var(--radius-sm);
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background-color: var(--accent-light);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent);
   flex-shrink: 0;
 }
 
 .contact-type {
   display: block;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
   margin-bottom: 0.125rem;
 }
 
@@ -77,6 +82,7 @@
   font-weight: 600;
   color: var(--text-primary);
   word-break: break-all;
+  transition: color var(--transition-fast);
 }
 
 .contact-value:hover {
@@ -88,7 +94,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 0.625rem;
-  padding-top: 0.5rem;
+  padding-top: 0.625rem;
   border-top: 1px solid var(--border-subtle);
 }
 
@@ -98,21 +104,21 @@
 
 /* Quick Draft Box */
 .quick-draft-container {
-  background-color: var(--bg-card);
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.625rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.125rem;
 }
 
 .draft-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.625rem;
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -127,25 +133,15 @@
 }
 
 .draft-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.0625rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
-.draft-badge {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  color: var(--accent);
-  background-color: var(--accent-light);
-  border: 1px solid var(--accent-border);
-  padding: 0.125rem 0.5rem;
-  border-radius: var(--radius-sm);
-}
-
 .draft-explainer {
-  font-size: 0.8125rem;
+  font-size: 0.84375rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
 .draft-form {
@@ -161,10 +157,9 @@
 }
 
 .form-label {
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
+  color: var(--text-primary);
 }
 
 .form-input,
@@ -172,10 +167,10 @@
   font-family: var(--font-sans);
   font-size: 0.875rem;
   color: var(--text-primary);
-  background-color: var(--bg-subtle);
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
-  padding: 0.625rem 0.75rem;
+  padding: 0.625rem 0.8125rem;
   transition: all var(--transition-fast);
   outline: none;
 }
@@ -189,7 +184,7 @@
 
 .form-textarea {
   resize: vertical;
-  min-height: 90px;
+  min-height: 95px;
 }
 
 .draft-actions {
@@ -202,7 +197,7 @@
 }
 
 .draft-note {
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 

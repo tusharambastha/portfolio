@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Skills Section — Categorized Toolkit
+   ========================================================================== */
+
 .skills-section {
   background-color: var(--bg-primary);
 }
@@ -10,19 +14,20 @@
 
 .skill-category-card {
   padding: 1.5rem;
-  background-color: var(--bg-card);
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-normal);
 }
 
 .skill-category-card:hover {
   border-color: var(--border-medium);
   box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
 }
 
 .category-header {
@@ -38,23 +43,23 @@
   width: 36px;
   height: 36px;
   border-radius: var(--radius-md);
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border-subtle);
+  background-color: var(--accent-light);
   color: var(--accent);
   flex-shrink: 0;
 }
 
 .category-title {
   font-size: 1.0625rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.01em;
   margin-bottom: 0.125rem;
 }
 
 .category-summary {
   font-size: 0.8125rem;
   color: var(--text-muted);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .skills-tag-list {
@@ -67,8 +72,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  padding: 0.5rem 0.75rem;
-  background-color: var(--bg-subtle);
+  padding: 0.625rem 0.875rem;
+  background-color: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
@@ -86,16 +91,16 @@
 }
 
 .skill-context {
-  font-size: 0.75rem;
+  font-size: 0.78125rem;
   color: var(--text-secondary);
   line-height: 1.4;
 }
 
 .skills-footer-note {
-  margin-top: 2rem;
-  padding: 1rem 1.25rem;
-  background-color: var(--bg-subtle);
-  border: 1px dashed var(--border-medium);
+  margin-top: 2.25rem;
+  padding: 1.125rem 1.375rem;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
 }
 

@@ -1,3 +1,7 @@
+/* ==========================================================================
+   About Section — Editorial & Narrative Layout
+   ========================================================================== */
+
 .about-section {
   background-color: var(--bg-secondary);
 }
@@ -16,44 +20,44 @@
 }
 
 .about-paragraph {
-  font-size: 1rem;
+  font-size: 1.0625rem;
   line-height: 1.7;
   color: var(--text-secondary);
 }
 
-.about-stats-strip {
+.about-quick-facts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-top: 1rem;
   padding: 1.25rem;
-  background-color: var(--bg-card);
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }
 
-.stat-item {
+.fact-item {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
 
-.stat-label {
-  font-size: 0.6875rem;
+.fact-label {
+  font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-muted);
-  letter-spacing: 0.05em;
+  letter-spacing: -0.01em;
 }
 
-.stat-val {
-  font-size: 0.875rem;
+.fact-value {
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--text-primary);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
-/* Pillars Right Column */
+/* Pillars: Distinct Editorial List */
 .about-pillars {
   display: flex;
   flex-direction: column;
@@ -61,48 +65,53 @@
 }
 
 .pillars-heading {
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: 1.1875rem;
+  font-weight: 700;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .pillars-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.875rem;
 }
 
-.pillar-card {
-  padding: 1.25rem;
-  background-color: var(--bg-card);
+.pillar-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.125rem;
+  background-color: var(--bg-primary);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-fast);
 }
 
-.pillar-card:hover {
+.pillar-item:hover {
   border-color: var(--border-medium);
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
-.pillar-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
-}
-
-.pillar-icon-box {
+.pillar-icon-wrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-sm);
   background-color: var(--accent-light);
   color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.125rem;
+}
+
+.pillar-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .pillar-title {
@@ -112,9 +121,9 @@
 }
 
 .pillar-desc {
-  font-size: 0.875rem;
+  font-size: 0.84375rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 /* Responsive */
@@ -126,8 +135,8 @@
 }
 
 @media (max-width: 640px) {
-  .about-stats-strip {
+  .about-quick-facts {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.875rem;
   }
 }

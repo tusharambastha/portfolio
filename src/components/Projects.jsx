@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { projects } from "../data/portfolioData";
-import { ExternalLink, ChevronDown, ChevronUp, Layers, CheckCircle2, AlertCircle } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp, CheckCircle2 } from "lucide-react";
 import { GithubIcon } from "./Icons";
 import "./Projects.css";
 
 export default function Projects() {
   const [filter, setFilter] = useState("all");
-  const [expandedId, setExpandedId] = useState("suraksha-ar"); // Default expanded to showcase details
+  const [expandedId, setExpandedId] = useState("suraksha-ar");
 
   const categories = [
     { id: "all", label: "All Projects" },
-    { id: "hackathon", label: "SIH Hackathon" },
-    { id: "fullstack", label: "Full-Stack & Systems" },
+    { id: "hackathon", label: "Hackathons" },
+    { id: "fullstack", label: "Full-Stack Web" },
     { id: "systems", label: "Smart Contracts" },
   ];
 
@@ -32,7 +32,7 @@ export default function Projects() {
           <span className="section-label">Engineering Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
-            Hands-on prototypes and applications engineered to solve specific operational challenges, built with verified source repositories and live deployments.
+            Hands-on prototypes and applications built to address specific challenges, with verified public code repositories and live deployments.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export default function Projects() {
                   <div className="badge-row">
                     <span className="project-badge">{project.badge}</span>
                     {project.badgeDetail && (
-                      <span className="project-badge-detail font-mono">{project.badgeDetail}</span>
+                      <span className="project-badge-detail">{project.badgeDetail}</span>
                     )}
                     <span
                       className={`project-status-tag ${
@@ -79,16 +79,17 @@ export default function Projects() {
                   <p className="project-tagline">{project.tagline}</p>
                 </div>
 
-                {/* Problem Statement Box */}
-                <div className="project-problem-box">
-                  <span className="problem-label font-mono">PROBLEM ADDRESSED</span>
-                  <p className="problem-text">{project.problem}</p>
-                </div>
+                {/* Problem & Architecture Narratives */}
+                <div className="project-narrative-group">
+                  <div className="narrative-block">
+                    <h4 className="narrative-heading">Problem Addressed</h4>
+                    <p className="narrative-text">{project.problem}</p>
+                  </div>
 
-                {/* Implementation / Architecture summary */}
-                <div className="project-solution-box">
-                  <span className="solution-label font-mono">IMPLEMENTED ARCHITECTURE</span>
-                  <p className="solution-text">{project.solution}</p>
+                  <div className="narrative-block">
+                    <h4 className="narrative-heading">Solution & Architecture</h4>
+                    <p className="narrative-text">{project.solution}</p>
+                  </div>
                 </div>
 
                 {/* Collapsible Key Functionality Details */}
@@ -117,10 +118,10 @@ export default function Projects() {
 
                 {/* Real Tech Stack Pills */}
                 <div className="project-tech-stack">
-                  <span className="tech-label font-mono">STACK:</span>
+                  <span className="tech-label">Technologies:</span>
                   <div className="tech-tags-wrap">
                     {project.technologies.map((tech, tIdx) => (
-                      <span key={tIdx} className="tech-pill font-mono">
+                      <span key={tIdx} className="tech-pill">
                         {tech}
                       </span>
                     ))}
@@ -152,7 +153,7 @@ export default function Projects() {
                       <span>Live Demo</span>
                     </a>
                   ) : (
-                    <span className="no-live-demo-tag font-mono">
+                    <span className="no-live-demo-tag">
                       Contract repo (No web UI deployed)
                     </span>
                   )}

@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-links-col">
-            <h4 className="footer-links-title font-mono">SECTIONS</h4>
+            <h4 className="footer-links-title">Navigation</h4>
             <ul className="footer-nav-list">
               {navLinks.map((link) => (
                 <li key={link.id}>
@@ -52,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div className="footer-connect-col">
-            <h4 className="footer-links-title font-mono">CONNECT</h4>
+            <h4 className="footer-links-title">Connect</h4>
             <div className="footer-social-links">
               <a
                 href={personalInfo.github}
@@ -90,7 +90,7 @@ export default function Footer() {
 
         {/* Bottom Bar with Dynamic Year */}
         <div className="footer-bottom-bar">
-          <p className="footer-copy font-mono">
+          <p className="footer-copy">
             © {currentYear} {personalInfo.name}. Handcrafted with React & Vite.
           </p>
 

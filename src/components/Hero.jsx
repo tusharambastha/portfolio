@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { personalInfo } from "../data/portfolioData";
-import { ArrowDown, Mail, MapPin } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
 import profilePhoto from "../assets/profile.jpg";
 import "./Hero.css";
@@ -9,7 +9,6 @@ export default function Hero() {
   const [imgSrc, setImgSrc] = useState(profilePhoto);
 
   const handleImageError = () => {
-    // Reliable fallback to public path for subpath or static deployments
     setImgSrc(`${import.meta.env.BASE_URL}images/profile.jpg`);
   };
 
@@ -25,25 +24,23 @@ export default function Hero() {
   return (
     <section id="home" className="hero-section">
       <div className="container hero-container">
-        {/* Left Column: Introduction & Call-to-actions */}
-        <div className="hero-content">
-          {/* Status Badge */}
-          <div className="hero-status-pill">
-            <span className="status-indicator-dot" aria-hidden="true" />
-            <span className="status-text">B.Tech CSE '28 · OIST Bhopal</span>
+        {/* Left Column: Text & Introduction */}
+        <div className="hero-text-side">
+          <div className="hero-status-badge">
+            <span className="status-dot" aria-hidden="true" />
+            <span>Computer Science Undergraduate · OIST Bhopal</span>
           </div>
 
-          {/* Primary Name & Role */}
-          <div className="hero-identity">
+          <div className="hero-title-group">
             <h1 className="hero-name">{personalInfo.name}</h1>
             <p className="hero-role">{personalInfo.role}</p>
           </div>
 
-          {/* Subtitle / Focus Statement */}
-          <p className="hero-tagline">{personalInfo.tagline}</p>
+          <p className="hero-description">
+            Building practical software development skills through Java, problem-solving, and web development. Exploring full-stack engineering with modern React and backend systems.
+          </p>
 
-          {/* Action Buttons */}
-          <div className="hero-cta-group">
+          <div className="hero-actions">
             <a
               href="#projects"
               onClick={(e) => scrollToSection(e, "projects")}
@@ -63,18 +60,17 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Social Profiles */}
-          <div className="hero-socials">
-            <span className="socials-label">Connect:</span>
-            <div className="social-links-row">
+          <div className="hero-social-row">
+            <span className="social-row-label">Connect:</span>
+            <div className="social-pills">
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link-item"
+                className="social-pill"
                 aria-label="GitHub Profile (opens in new tab)"
               >
-                <GithubIcon size={16} aria-hidden="true" />
+                <GithubIcon size={15} aria-hidden="true" />
                 <span>GitHub</span>
               </a>
 
@@ -82,82 +78,35 @@ export default function Hero() {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="social-link-item"
+                className="social-pill"
                 aria-label="LinkedIn Profile (opens in new tab)"
               >
-                <LinkedinIcon size={16} aria-hidden="true" />
+                <LinkedinIcon size={15} aria-hidden="true" />
                 <span>LinkedIn</span>
               </a>
 
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="social-link-item"
+                className="social-pill"
                 aria-label={`Email ${personalInfo.email}`}
               >
-                <Mail size={16} aria-hidden="true" />
+                <Mail size={15} aria-hidden="true" />
                 <span>{personalInfo.email}</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Profile Portrait & Engineering Meta-Panel */}
-        <div className="hero-visual-panel">
-          {/* Real Profile Photo Card */}
-          <div className="hero-portrait-card">
-            <div className="portrait-img-wrapper">
-              <img
-                src={imgSrc}
-                onError={handleImageError}
-                alt="Tushar Ambastha — Computer Science Undergraduate"
-                className="hero-portrait-img"
-                loading="eager"
-              />
-              <div className="portrait-caption-pill">
-                <span className="portrait-status-dot" aria-hidden="true" />
-                <span className="portrait-caption-text">Tushar Ambastha · OIST Bhopal</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Lightweight, Restrained Engineering Meta-Card */}
-          <div className="hero-meta-panel" aria-label="Student Engineering Snapshot">
-            <div className="meta-panel-header">
-              <div className="meta-panel-dots" aria-hidden="true">
-                <span className="dot dot-gray" />
-                <span className="dot dot-gray" />
-                <span className="dot dot-gray" />
-              </div>
-              <span className="meta-panel-file">profile_summary.env</span>
-            </div>
-
-            <div className="meta-panel-body">
-              <div className="meta-row">
-                <span className="meta-key">INSTITUTION</span>
-                <span className="meta-value">Oriental Institute of Science & Technology</span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-key">LOCATION</span>
-                <span className="meta-value">Bhopal, Madhya Pradesh</span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-key">PRIMARY_LANG</span>
-                <span className="meta-value font-mono">Java (OOP, DSA)</span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-key">WEB_STACK</span>
-                <span className="meta-value font-mono">React · JavaScript · Spring Boot · Vite</span>
-              </div>
-              <div className="meta-row">
-                <span className="meta-key">ACTIVE_FOCUS</span>
-                <span className="meta-value">Problem Solving & Full-Stack Projects</span>
-              </div>
-            </div>
-
-            <div className="meta-panel-footer">
-              <span className="meta-badge">Verified Academic Status</span>
-              <span className="meta-cohort font-mono">Graduation: 2028</span>
-            </div>
+        {/* Right Column: Natural Portrait Presentation */}
+        <div className="hero-portrait-side">
+          <div className="portrait-frame">
+            <img
+              src={imgSrc}
+              onError={handleImageError}
+              alt="Tushar Ambastha"
+              className="portrait-image"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
