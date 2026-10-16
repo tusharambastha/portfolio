@@ -1,0 +1,119 @@
+/* ==========================================================================
+   Ambient Background — Continuous, Smooth, Elegant Animated Gradient Orbs
+   ========================================================================== */
+
+.ambient-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: #f8faff;
+}
+
+/* Continuously moving soft blue gradient orbs */
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  will-change: transform;
+  pointer-events: none;
+  opacity: 0.70;
+}
+
+/* Primary Cyan/Blue Orb (Top-Left) */
+.orb-1 {
+  top: -6%;
+  left: 8%;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(56, 189, 248, 0.18) 45%, rgba(255, 255, 255, 0) 72%);
+  animation: floatOrb1 18s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+/* Secondary Indigo/Sky Orb (Top-Right / Mid) */
+.orb-2 {
+  top: 22%;
+  right: -5%;
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.22) 0%, rgba(37, 99, 235, 0.16) 45%, rgba(255, 255, 255, 0) 72%);
+  animation: floatOrb2 22s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+/* Tertiary Blue/Sky Orb (Bottom-Left / Center) */
+.orb-3 {
+  bottom: 8%;
+  left: 22%;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.20) 0%, rgba(37, 99, 235, 0.14) 45%, rgba(255, 255, 255, 0) 72%);
+  animation: floatOrb3 20s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate;
+}
+
+/* Smooth continuous floating animations */
+@keyframes floatOrb1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(85px, 60px, 0) scale(1.10);
+  }
+  100% {
+    transform: translate3d(-45px, 110px, 0) scale(0.95);
+  }
+}
+
+@keyframes floatOrb2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-95px, 75px, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(55px, -45px, 0) scale(0.92);
+  }
+}
+
+@keyframes floatOrb3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(75px, -70px, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-65px, 45px, 0) scale(0.92);
+  }
+}
+
+/* Subtle architectural dot grid */
+.ambient-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 40%, transparent 100%);
+  opacity: 0.85;
+}
+
+/* Soft ambient gradient wash overlay */
+.ambient-glow-wash {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 15%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-orb {
+    animation: none !important;
+    transform: none !important;
+  }
+}

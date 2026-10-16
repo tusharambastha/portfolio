@@ -1,8 +1,12 @@
 .footer-root {
-  background-color: var(--bg-primary);
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border-top: 1px solid var(--border-subtle);
   padding-top: 4rem;
   padding-bottom: 2.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .footer-container {

@@ -3,7 +3,9 @@
    ========================================================================== */
 
 .about-section {
-  background-color: var(--bg-secondary);
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
 }
 
 .about-content {
@@ -14,7 +16,8 @@
 }
 
 .about-statement-card {
-  background-color: var(--bg-primary);
+  background-color: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   border-left: 3px solid var(--accent);
   border-radius: var(--radius-md);
@@ -49,7 +52,8 @@
   flex-direction: column;
   gap: 0.25rem;
   padding: 1.125rem 1.25rem;
-  background-color: var(--bg-primary);
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
