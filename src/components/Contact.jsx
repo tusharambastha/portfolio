@@ -25,7 +25,7 @@ export default function Contact() {
     <section id="contact" className="section contact-section">
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-label">Get in Touch</span>
           <h2 className="section-title">Contact</h2>
           <p className="section-subtitle">
@@ -35,7 +35,7 @@ export default function Contact() {
 
         <div className="contact-grid">
           {/* Direct Channels */}
-          <div className="contact-channels">
+          <div className="contact-channels reveal">
             <h3 className="channels-heading">Direct Channels</h3>
 
             {/* Email Card */}
@@ -151,7 +151,7 @@ export default function Contact() {
           </div>
 
           {/* Functional Email Draft Helper */}
-          <div className="quick-draft-container">
+          <div className="quick-draft-container reveal stagger-2">
             <div className="draft-header">
               <div className="draft-title-wrap">
                 <MessageSquare size={18} className="draft-icon" aria-hidden="true" />

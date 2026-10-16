@@ -28,7 +28,7 @@ export default function Projects() {
     <section id="projects" className="section section-alt projects-section">
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-label">Engineering Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
@@ -37,7 +37,7 @@ export default function Projects() {
         </div>
 
         {/* Filter Controls */}
-        <div className="projects-filter-bar" role="tablist" aria-label="Project category filters">
+        <div className="projects-filter-bar reveal" role="tablist" aria-label="Project category filters">
           {categories.map((cat) => (
             <button
               key={cat.id}
@@ -53,11 +53,11 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((project) => {
+          {filteredProjects.map((project, idx) => {
             const isExpanded = expandedId === project.id;
 
             return (
-              <article key={project.id} className="project-card">
+              <article key={project.id} className={`project-card reveal stagger-${(idx % 3) + 1}`}>
                 {/* Card Header & Badges */}
                 <div className="project-card-header">
                   <div className="badge-row">
@@ -164,7 +164,7 @@ export default function Projects() {
         </div>
 
         {/* Verification Guarantee */}
-        <div className="projects-transparency-card">
+        <div className="projects-transparency-card reveal">
           <div className="transparency-icon-box">
             <CheckCircle2 size={18} aria-hidden="true" />
           </div>

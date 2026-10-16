@@ -24,6 +24,28 @@
   gap: 1.375rem;
 }
 
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroPortraitEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
 .hero-status-badge {
   display: inline-flex;
   align-items: center;
@@ -37,6 +59,7 @@
   font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: -0.01em;
+  animation: heroFadeUp 550ms cubic-bezier(0.16, 1, 0.3, 1) 40ms both;
 }
 
 .status-dot {
@@ -50,6 +73,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  animation: heroFadeUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
 }
 
 .hero-name {
@@ -72,6 +96,7 @@
   color: var(--text-secondary);
   line-height: 1.65;
   max-width: 510px;
+  animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
 }
 
 /* Call to Actions */
@@ -81,6 +106,7 @@
   flex-wrap: wrap;
   gap: 0.875rem;
   margin-top: 0.25rem;
+  animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 280ms both;
 }
 
 /* Social links row */
@@ -91,6 +117,7 @@
   gap: 0.875rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border-subtle);
+  animation: heroFadeUp 650ms cubic-bezier(0.16, 1, 0.3, 1) 360ms both;
 }
 
 .social-row-label {
@@ -126,7 +153,7 @@
   color: var(--accent);
   background-color: var(--accent-light);
   border-color: var(--accent-border);
-  transform: translateY(-1px);
+  transform: translateY(-1.5px);
 }
 
 /* Right Column: Clean Portrait */
@@ -146,6 +173,7 @@
   padding: 6px;
   box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.08), 0 4px 12px -4px rgba(15, 23, 42, 0.03);
   transition: all var(--transition-normal);
+  animation: heroPortraitEntrance 750ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
 }
 
 .portrait-frame:hover {
@@ -233,5 +261,18 @@
   }
   .portrait-frame {
     max-width: 190px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-status-badge,
+  .hero-title-group,
+  .hero-description,
+  .hero-actions,
+  .hero-social-row,
+  .portrait-frame {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

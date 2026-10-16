@@ -8,7 +8,7 @@ export default function Experience() {
     <section id="experience" className="section experience-section">
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-label">Practical Exposure</span>
           <h2 className="section-title">Industry Training</h2>
           <p className="section-subtitle">
@@ -18,7 +18,7 @@ export default function Experience() {
 
         <div className="experience-list">
           {experienceData.map((exp, idx) => (
-            <div key={idx} className="experience-card">
+            <div key={idx} className={`experience-card reveal stagger-${idx + 1}`}>
               <div className="experience-card-header">
                 <div className="exp-role-wrap">
                   <div className="exp-icon-box">

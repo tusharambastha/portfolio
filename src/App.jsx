@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -11,6 +11,47 @@ import Footer from "./components/Footer";
 import "./App.css";
 
 export default function App() {
+  useEffect(() => {
+    // If reduced motion is preferred by user, show immediately
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px",
+      }
+    );
+
+    const observeReveals = () => {
+      const elements = document.querySelectorAll(".reveal:not(.is-visible)");
+      elements.forEach((el) => observer.observe(el));
+    };
+
+    observeReveals();
+
+    const mutObserver = new MutationObserver(() => {
+      observeReveals();
+    });
+
+    mutObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      observer.disconnect();
+      mutObserver.disconnect();
+    };
+  }, []);
+
   return (
     <div className="portfolio-app">
       <Navbar />

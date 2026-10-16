@@ -82,6 +82,7 @@
 .skill-badge-wrapper:hover {
   border-color: var(--accent-border);
   background-color: var(--accent-light);
+  transform: translateY(-1px);
 }
 
 .skill-name {

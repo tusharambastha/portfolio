@@ -8,7 +8,7 @@ export default function Education() {
     <section id="education" className="section section-alt education-section">
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-label">Academic Path</span>
           <h2 className="section-title">Education</h2>
           <p className="section-subtitle">
@@ -18,7 +18,7 @@ export default function Education() {
 
         <div className="education-timeline">
           {educationData.map((edu, idx) => (
-            <div key={idx} className="education-card">
+            <div key={idx} className={`education-card reveal stagger-${idx + 1}`}>
               <div className="edu-card-top">
                 <div className="edu-institution-info">
                   <div className="edu-icon-box">

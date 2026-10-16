@@ -23,30 +23,8 @@ export const navLinks = [
 ];
 
 export const aboutData = {
-  summary: [
-    "I am a Computer Science and Engineering undergraduate at Oriental Institute of Science & Technology, Bhopal, with a graduation target of 2028. My primary focus is on developing practical software engineering fundamentals through consistent coding and hands-on project development.",
-    "My core technical interest centers around Java, object-oriented design, and foundational data structures and algorithms. I enjoy understanding how systems work under the hood and solving computational problems step-by-step.",
-    "On the web development side, I build responsive, component-driven user interfaces using React, JavaScript, and modern CSS. I also actively explore backend development with Spring Boot and FastAPI, alongside database fundamentals across PostgreSQL, MySQL, and browser-native storage.",
-    "Rather than treating technologies as theoretical concepts, I apply them to real-world challenges—such as developing immersive AR safety simulations for industrial workers and semantic search engines for public procurement standards.",
-  ],
-  pillars: [
-    {
-      title: "Java & Problem Solving",
-      description: "Writing structured, object-oriented code with clean abstractions, focusing on core data structures and algorithmic efficiency.",
-    },
-    {
-      title: "Modern Frontend Development",
-      description: "Building responsive, accessible web interfaces in React and Vite with careful attention to layout hierarchy, typography, and state.",
-    },
-    {
-      title: "Backend & Systems",
-      description: "Developing RESTful APIs with Spring Boot and FastAPI, working with relational databases, and studying system architecture.",
-    },
-    {
-      title: "Practical Engineering",
-      description: "Participating in competitive technical challenges (such as Smart India Hackathon) to build working, verified prototypes.",
-    },
-  ],
+  content:
+    "I'm a Computer Science undergraduate at OIST Bhopal, focused on Java, problem-solving, and building practical software projects. I believe in learning by building, improving through iteration, and writing code that solves real problems.",
 };
 
 export const skillCategories = [

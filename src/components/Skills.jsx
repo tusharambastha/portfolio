@@ -27,7 +27,7 @@ export default function Skills() {
     <section id="skills" className="section skills-section">
       <div className="container">
         {/* Section Header */}
-        <div className="section-header">
+        <div className="section-header reveal">
           <span className="section-label">Toolkit</span>
           <h2 className="section-title">Technical Skills</h2>
           <p className="section-subtitle">
@@ -38,7 +38,7 @@ export default function Skills() {
         {/* Skill Category Cards Grid */}
         <div className="skills-grid">
           {skillCategories.map((group, idx) => (
-            <div key={idx} className="skill-category-card">
+            <div key={idx} className={`skill-category-card reveal stagger-${(idx % 4) + 1}`}>
               <div className="category-header">
                 <span className="category-icon-box">{getCategoryIcon(group.category)}</span>
                 <div>
@@ -59,7 +59,7 @@ export default function Skills() {
           ))}
         </div>
 
-        <div className="skills-footer-note">
+        <div className="skills-footer-note reveal">
           <p className="note-text">
             <strong>Honest Engineering Note:</strong> Listed technologies represent practical coursework, personal study, and hackathon project implementation. I actively write Java and React, and continue to deepen my understanding of backend and database architectures.
           </p>
