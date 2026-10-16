@@ -158,7 +158,7 @@ export const projects = [
   {
     id: "crypto-vault",
     name: "CryptoVault",
-    tagline: "Decentralized Ether Vault Smart Contract",
+    tagline: "Decentralized Ether Vault smart contract managing secure deposits and balance tracking",
     badge: "Open Source",
     badgeDetail: "Solidity Learning Project",
     category: "systems",

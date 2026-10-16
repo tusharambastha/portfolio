@@ -5,20 +5,7 @@ import { GithubIcon } from "./Icons";
 import "./Projects.css";
 
 export default function Projects() {
-  const [filter, setFilter] = useState("all");
-  const [expandedId, setExpandedId] = useState("suraksha-ar");
-
-  const categories = [
-    { id: "all", label: "All Projects" },
-    { id: "hackathon", label: "Hackathons" },
-    { id: "fullstack", label: "Full-Stack Web" },
-    { id: "systems", label: "Smart Contracts" },
-  ];
-
-  const filteredProjects =
-    filter === "all"
-      ? projects
-      : projects.filter((p) => p.category === filter);
+  const [expandedId, setExpandedId] = useState(null);
 
   const toggleExpand = (id) => {
     setExpandedId((prev) => (prev === id ? null : id));
@@ -32,148 +19,157 @@ export default function Projects() {
           <span className="section-label">Engineering Work</span>
           <h2 className="section-title">Featured Projects</h2>
           <p className="section-subtitle">
-            Hands-on prototypes and applications built to address specific challenges, with verified public code repositories and live deployments.
+            Practical software projects built to solve specific challenges, with verified public repositories and live deployments.
           </p>
         </div>
 
-        {/* Filter Controls */}
-        <div className="projects-filter-bar reveal" role="tablist" aria-label="Project category filters">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              role="tab"
-              aria-selected={filter === cat.id}
-              className={`filter-btn ${filter === cat.id ? "active" : ""}`}
-              onClick={() => setFilter(cat.id)}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Projects Grid */}
+        {/* Compact 2-Column Responsive Grid */}
         <div className="projects-grid">
-          {filteredProjects.map((project, idx) => {
+          {projects.map((project, idx) => {
             const isExpanded = expandedId === project.id;
+            const previewTech = project.technologies.slice(0, 4);
 
             return (
-              <article key={project.id} className={`project-card reveal stagger-${(idx % 3) + 1}`}>
-                {/* Card Header & Badges */}
-                <div className="project-card-header">
-                  <div className="badge-row">
+              <article
+                key={project.id}
+                className={`project-card reveal stagger-${(idx % 4) + 1} ${
+                  isExpanded ? "is-expanded" : ""
+                }`}
+              >
+                {/* Compact Card Surface */}
+                <div className="project-card-top">
+                  <div className="project-meta-row">
                     <span className="project-badge">{project.badge}</span>
-                    {project.badgeDetail && (
-                      <span className="project-badge-detail">{project.badgeDetail}</span>
-                    )}
                     <span
                       className={`project-status-tag ${
                         project.liveUrl ? "status-live" : "status-repo"
                       }`}
                     >
                       <span className="status-dot" aria-hidden="true" />
-                      {project.status}
+                      <span>{project.liveUrl ? "Live Demo" : "Contract"}</span>
                     </span>
                   </div>
 
                   <h3 className="project-name">{project.name}</h3>
-                  <p className="project-tagline">{project.tagline}</p>
-                </div>
+                  <p className="project-short-desc" title={project.tagline}>
+                    {project.tagline}
+                  </p>
 
-                {/* Problem & Architecture Narratives */}
-                <div className="project-narrative-group">
-                  <div className="narrative-block">
-                    <h4 className="narrative-heading">Problem Addressed</h4>
-                    <p className="narrative-text">{project.problem}</p>
-                  </div>
-
-                  <div className="narrative-block">
-                    <h4 className="narrative-heading">Solution & Architecture</h4>
-                    <p className="narrative-text">{project.solution}</p>
-                  </div>
-                </div>
-
-                {/* Collapsible Key Functionality Details */}
-                <div className="project-highlights-section">
-                  <button
-                    type="button"
-                    className="toggle-highlights-btn"
-                    onClick={() => toggleExpand(project.id)}
-                    aria-expanded={isExpanded}
-                  >
-                    <span>{isExpanded ? "Hide Implemented Features" : "View Implemented Features & Technical Details"}</span>
-                    {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                  </button>
-
-                  {isExpanded && (
-                    <ul className="highlights-list">
-                      {project.highlights.map((highlight, hIdx) => (
-                        <li key={hIdx} className="highlight-item">
-                          <CheckCircle2 size={15} className="highlight-icon" aria-hidden="true" />
-                          <span>{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                {/* Real Tech Stack Pills */}
-                <div className="project-tech-stack">
-                  <span className="tech-label">Technologies:</span>
-                  <div className="tech-tags-wrap">
-                    {project.technologies.map((tech, tIdx) => (
-                      <span key={tIdx} className="tech-pill">
+                  {/* 3-4 Essential Tech Tags */}
+                  <div className="project-tech-tags">
+                    {previewTech.map((tech, tIdx) => (
+                      <span key={tIdx} className="tech-tag">
                         {tech}
                       </span>
                     ))}
+                    {project.technologies.length > 4 && (
+                      <span className="tech-tag-more" title="More technologies in details">
+                        +{project.technologies.length - 4}
+                      </span>
+                    )}
                   </div>
                 </div>
 
-                {/* Action Buttons: Verified Links only! */}
-                <div className="project-card-footer">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-secondary btn-sm project-btn"
-                    aria-label={`View ${project.name} repository on GitHub (opens in new tab)`}
-                  >
-                    <GithubIcon size={15} aria-hidden="true" />
-                    <span>View Repository</span>
-                  </a>
-
-                  {project.liveUrl ? (
+                {/* Primary Card Actions */}
+                <div className="project-card-actions">
+                  <div className="project-external-links">
                     <a
-                      href={project.liveUrl}
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-primary btn-sm project-btn"
-                      aria-label={`Open live demo for ${project.name} (opens in new tab)`}
+                      className="btn btn-secondary btn-sm project-action-btn"
+                      aria-label={`View ${project.name} repository on GitHub (opens in new tab)`}
                     >
-                      <ExternalLink size={15} aria-hidden="true" />
-                      <span>Live Demo</span>
+                      <GithubIcon size={14} aria-hidden="true" />
+                      <span>Code</span>
                     </a>
-                  ) : (
-                    <span className="no-live-demo-tag">
-                      Contract repo (No web UI deployed)
-                    </span>
-                  )}
+
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary btn-sm project-action-btn"
+                        aria-label={`Open live demo for ${project.name} (opens in new tab)`}
+                      >
+                        <ExternalLink size={14} aria-hidden="true" />
+                        <span>Demo</span>
+                      </a>
+                    )}
+                  </div>
+
+                  {/* View Details Toggle */}
+                  <button
+                    type="button"
+                    onClick={() => toggleExpand(project.id)}
+                    className="details-toggle-btn"
+                    aria-expanded={isExpanded}
+                    aria-controls={`details-${project.id}`}
+                  >
+                    <span>{isExpanded ? "Hide Details" : "View Details"}</span>
+                    {isExpanded ? (
+                      <ChevronUp size={15} aria-hidden="true" />
+                    ) : (
+                      <ChevronDown size={15} aria-hidden="true" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Expandable Technical Area */}
+                <div
+                  id={`details-${project.id}`}
+                  className={`project-expandable-content ${isExpanded ? "open" : ""}`}
+                >
+                  <div className="expandable-inner">
+                    {/* Problem & Architecture */}
+                    <div className="details-narrative">
+                      <div className="detail-block">
+                        <span className="detail-label">Problem</span>
+                        <p className="detail-text">{project.problem}</p>
+                      </div>
+                      <div className="detail-block">
+                        <span className="detail-label">Solution</span>
+                        <p className="detail-text">{project.solution}</p>
+                      </div>
+                    </div>
+
+                    {/* Key Technical Highlights */}
+                    <div className="detail-highlights">
+                      <span className="detail-label">Implemented Features</span>
+                      <ul className="detail-list">
+                        {project.highlights.map((highlight, hIdx) => (
+                          <li key={hIdx} className="detail-item">
+                            <CheckCircle2 size={14} className="detail-icon" aria-hidden="true" />
+                            <span>{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Full Stack Tech Badges */}
+                    <div className="detail-all-tech">
+                      <span className="detail-label">Full Stack:</span>
+                      <div className="tech-tags-wrap">
+                        {project.technologies.map((tech, tIdx) => (
+                          <span key={tIdx} className="tech-tag tech-tag-sm">
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </article>
             );
           })}
         </div>
 
-        {/* Verification Guarantee */}
-        <div className="projects-transparency-card reveal">
-          <div className="transparency-icon-box">
-            <CheckCircle2 size={18} aria-hidden="true" />
-          </div>
-          <div className="transparency-content">
-            <h4 className="transparency-title">Source Code Transparency</h4>
-            <p className="transparency-desc">
-              Every project listed above links directly to its public GitHub repository. Features and architectural modules described correspond to actual code commits, README specifications, and verified live GitHub Pages deployments.
-            </p>
-          </div>
+        {/* Compact Transparency Note */}
+        <div className="projects-transparency-note reveal">
+          <CheckCircle2 size={16} className="note-check-icon" aria-hidden="true" />
+          <span>
+            All projects link directly to public GitHub repositories with verified code commits and live GitHub Pages deployments.
+          </span>
         </div>
       </div>
     </section>
