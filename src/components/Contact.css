@@ -36,6 +36,7 @@
 .contact-card:hover {
   border-color: var(--border-medium);
   box-shadow: var(--shadow-md);
+  transform: translateY(-1.5px);
 }
 
 .email-highlight-card {

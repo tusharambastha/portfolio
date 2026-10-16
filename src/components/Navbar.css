@@ -39,10 +39,11 @@
 }
 
 .brand-dot {
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
 .brand-role {
@@ -54,6 +55,13 @@
   padding: 0.125rem 0.5rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.navbar-brand:hover .brand-role {
+  color: var(--accent);
+  border-color: var(--accent-border);
+  background-color: var(--accent-light);
 }
 
 /* Desktop Navigation */
@@ -77,12 +85,14 @@
   font-weight: 500;
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
 }
 
 .nav-link:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-subtle);
+  color: var(--accent);
+  background-color: var(--accent-light);
+  border-color: var(--accent-border);
 }
 
 .nav-link.active {

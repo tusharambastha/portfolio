@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { personalInfo } from "../data/portfolioData";
-import { ArrowDown, Mail, Terminal, BookOpen, MapPin, Sparkles } from "lucide-react";
+import { ArrowDown, Mail, MapPin } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
+import profilePhoto from "../assets/profile.jpg";
 import "./Hero.css";
 
 export default function Hero() {
+  const [imgSrc, setImgSrc] = useState(profilePhoto);
+
+  const handleImageError = () => {
+    // Reliable fallback to public path for subpath or static deployments
+    setImgSrc(`${import.meta.env.BASE_URL}images/profile.jpg`);
+  };
+
   const scrollToSection = (e, sectionId) => {
     e.preventDefault();
     const el = document.getElementById(sectionId);
@@ -17,6 +25,7 @@ export default function Hero() {
   return (
     <section id="home" className="hero-section">
       <div className="container hero-container">
+        {/* Left Column: Introduction & Call-to-actions */}
         <div className="hero-content">
           {/* Status Badge */}
           <div className="hero-status-pill">
@@ -92,43 +101,63 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Lightweight, Restrained Engineering Meta-Card */}
-        <div className="hero-meta-panel" aria-label="Student Engineering Snapshot">
-          <div className="meta-panel-header">
-            <div className="meta-panel-dots" aria-hidden="true">
-              <span className="dot dot-gray" />
-              <span className="dot dot-gray" />
-              <span className="dot dot-gray" />
-            </div>
-            <span className="meta-panel-file">profile_summary.env</span>
-          </div>
-
-          <div className="meta-panel-body">
-            <div className="meta-row">
-              <span className="meta-key">INSTITUTION</span>
-              <span className="meta-value">Oriental Institute of Science & Technology</span>
-            </div>
-            <div className="meta-row">
-              <span className="meta-key">LOCATION</span>
-              <span className="meta-value">Bhopal, Madhya Pradesh</span>
-            </div>
-            <div className="meta-row">
-              <span className="meta-key">PRIMARY_LANG</span>
-              <span className="meta-value font-mono">Java (OOP, DSA)</span>
-            </div>
-            <div className="meta-row">
-              <span className="meta-key">WEB_STACK</span>
-              <span className="meta-value font-mono">React · JavaScript · Spring Boot · Vite</span>
-            </div>
-            <div className="meta-row">
-              <span className="meta-key">ACTIVE_FOCUS</span>
-              <span className="meta-value">Problem Solving & Full-Stack Projects</span>
+        {/* Right Column: Profile Portrait & Engineering Meta-Panel */}
+        <div className="hero-visual-panel">
+          {/* Real Profile Photo Card */}
+          <div className="hero-portrait-card">
+            <div className="portrait-img-wrapper">
+              <img
+                src={imgSrc}
+                onError={handleImageError}
+                alt="Tushar Ambastha — Computer Science Undergraduate"
+                className="hero-portrait-img"
+                loading="eager"
+              />
+              <div className="portrait-caption-pill">
+                <span className="portrait-status-dot" aria-hidden="true" />
+                <span className="portrait-caption-text">Tushar Ambastha · OIST Bhopal</span>
+              </div>
             </div>
           </div>
 
-          <div className="meta-panel-footer">
-            <span className="meta-badge">Verified Academic Status</span>
-            <span className="meta-cohort font-mono">Graduation: 2028</span>
+          {/* Lightweight, Restrained Engineering Meta-Card */}
+          <div className="hero-meta-panel" aria-label="Student Engineering Snapshot">
+            <div className="meta-panel-header">
+              <div className="meta-panel-dots" aria-hidden="true">
+                <span className="dot dot-gray" />
+                <span className="dot dot-gray" />
+                <span className="dot dot-gray" />
+              </div>
+              <span className="meta-panel-file">profile_summary.env</span>
+            </div>
+
+            <div className="meta-panel-body">
+              <div className="meta-row">
+                <span className="meta-key">INSTITUTION</span>
+                <span className="meta-value">Oriental Institute of Science & Technology</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-key">LOCATION</span>
+                <span className="meta-value">Bhopal, Madhya Pradesh</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-key">PRIMARY_LANG</span>
+                <span className="meta-value font-mono">Java (OOP, DSA)</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-key">WEB_STACK</span>
+                <span className="meta-value font-mono">React · JavaScript · Spring Boot · Vite</span>
+              </div>
+              <div className="meta-row">
+                <span className="meta-key">ACTIVE_FOCUS</span>
+                <span className="meta-value">Problem Solving & Full-Stack Projects</span>
+              </div>
+            </div>
+
+            <div className="meta-panel-footer">
+              <span className="meta-badge">Verified Academic Status</span>
+              <span className="meta-cohort font-mono">Graduation: 2028</span>
+            </div>
           </div>
         </div>
       </div>
