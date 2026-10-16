@@ -272,6 +272,24 @@ a:focus-visible {
   border-radius: var(--radius-sm);
 }
 
+/* Button Icon Micro-interactions */
+.btn svg {
+  transition: transform var(--transition-fast);
+}
+
+.btn:hover svg.lucide-arrow-down {
+  transform: translateY(2.5px);
+}
+
+.btn:hover svg.lucide-arrow-up-right,
+.btn:hover svg.lucide-external-link {
+  transform: translate(2px, -2px);
+}
+
+.btn:hover svg.lucide-send {
+  transform: translate(2px, -1px);
+}
+
 /* ==========================================================================
    Scroll Reveal Animation System
    ========================================================================== */
